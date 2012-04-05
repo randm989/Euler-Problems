@@ -9,23 +9,35 @@ contents = File.read('p11.txt')
 
 split = contents.split("\n")
 
-for s in split
+split.map!{|s|
 	s = s.split(" ")
-end
-
-puts split
+	s.map!{|i| i.to_i}
+	s
+}
 
 class NodeTraveler
+
+	attr_accessor :debug
+
 	def initialize(map)
 		@map = map
 		@xbound = map[0].length
 		@ybound = map.length
+		@debug = false
 	end
 
-	def TravelDirection(xstep,ystep,ystart,xstart)
+	def TravelDirectionForProduct(xstep,ystep,ystart,xstart,steps)
 		xPos = xstart
 		yPos = ystart
-			
+		product = 1
+		while self.CheckBounds(xPos,yPos) and steps > 0 do
+			puts @map[yPos][xPos].class
+			product *= @map[yPos][xPos]	
+			xPos += xstep	
+			yPos += ystep
+			steps -= 1	
+		end	
+		return product
 	end
 
 	def CheckBounds(x,y)
@@ -39,3 +51,6 @@ class NodeTraveler
 	end
 end
 
+traveler = NodeTraveler.new(split)
+
+puts traveler.TravelDirectionForProduct(1,1,0,1,2)
