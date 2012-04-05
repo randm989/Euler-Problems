@@ -18,12 +18,23 @@ split.map!{|s|
 class NodeTraveler
 
 	attr_accessor :debug
+	attr_reader :xbound, :ybound
 
 	def initialize(map)
 		@map = map
 		@xbound = map[0].length
 		@ybound = map.length
 		@debug = false
+		@cardinalDirections = [[-1,-1],[-1,0],[-1,1],[0,1],[0,-1],[1,-1],[1,0],[1,-1]]
+	end
+
+	def GetMaxProductForNode(nodex,nodey,steps)
+		maxProduct = 0
+		@cardinalDirections.each {|dir|
+			dirProduct = self.TravelDirectionForProduct(dir[0],dir[1],nodex,nodey,steps)
+			maxProduct = [maxProduct,dirProduct].max	
+		}
+		return maxProduct
 	end
 
 	def TravelDirectionForProduct(xstep,ystep,ystart,xstart,steps)
@@ -31,7 +42,6 @@ class NodeTraveler
 		yPos = ystart
 		product = 1
 		while self.CheckBounds(xPos,yPos) and steps > 0 do
-			puts @map[yPos][xPos].class
 			product *= @map[yPos][xPos]	
 			xPos += xstep	
 			yPos += ystep
@@ -53,4 +63,12 @@ end
 
 traveler = NodeTraveler.new(split)
 
-puts traveler.TravelDirectionForProduct(1,1,0,1,2)
+maxProductTotal = 0
+
+for i in 0..traveler.ybound
+	for k in 0..traveler.xbound
+		maxProductTotal = [maxProductTotal,traveler.GetMaxProductForNode(k,i,4)].max	
+	end
+end
+
+puts maxProductTotal
