@@ -1,17 +1,36 @@
 #!/usr/bin/ruby
 
 #What is the value of the first triangle number to have over five hundred divisors
-if ARGV.length < 1 
-	puts "Takes a number as a parameter to calculate how many triangle numbers to put out"
-	exit
-end
 
-def calculateTriangleNumbers(numToCalculate)
-	triangleNums = [1]
-	for i in 2..numToCalculate
-		triangleNums.push(triangleNums[-1]+i)	
+def numDivisors(x)
+	sqrtx = Math.sqrt(x)
+	i = 1
+	numDiv = 0
+	divisorList = []
+	while i <= sqrtx
+		if x%i==0
+			numDiv+=(i==sqrtx)?1:2
+			divisorList.push(x/i,i)
+		end
+		i+=1
 	end
-	return triangleNums
+	puts divisorList.uniq.sort.join(',')
+	return numDiv
 end
 
-calculateTriangleNumbers(ARGV[0].to_i).each_with_index {|i,index| puts "#{index}: #{i}"}
+for i in 2..20
+	puts i.to_s + ": " + numDivisors(i).to_s
+	puts
+end
+exit
+
+triNum = 1
+triAdder = 2
+
+while numDivisors(triNum) < 500
+	triNum+=triAdder
+	triAdder+=1
+end
+
+puts triNum
+
