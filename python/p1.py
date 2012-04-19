@@ -1,3 +1,4 @@
+#!/usr/bin/python
 
 x = 0 
 
