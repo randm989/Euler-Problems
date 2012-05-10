@@ -62,18 +62,44 @@ BigInt & BigInt::operator +=(const BigInt& rhs)
         if( digits.size() <= i )
             digits.push_back(digit);
         else
-            digits[i++] = digit;
+            digits[i] = digit;
+		i++;
     }
     return *this;
 }
 
 BigInt BigInt::operator -(const BigInt& rhs) const
 {
-    return BigInt();
+	BigInt result(*this);
+    return result -= rhs;
 }
 
 BigInt & BigInt::operator -=(const BigInt& rhs)
 {
+	const BigInt* a = this;
+	const BigInt* b = &rhs;
+	if( *a < *b ) 
+		std::swap(a,b);
+
+	BigIntElement i = 0;
+	BigIntElement borrow = 0;
+	const int minuendSize = b->digits.size();
+	while( i < a->digits.size() )
+	{
+		BigIntElement newDigit = a->digits[i] - (minuendSize > i ? b->digits[i] : 0) - borrow;
+		
+		if( newDigit < 0 )
+		{
+			borrow = 1;
+			newDigit += radix;
+		}
+		
+		if( digits.size() <= i ) 
+			digits.push_back(newDigit);
+		else
+			digits[i];
+		++i;
+	}
     return *this;
 }
 
