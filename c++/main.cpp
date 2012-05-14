@@ -13,6 +13,7 @@
 #include "p1.hpp"
 #include "p2.hpp"
 #include "p3.hpp"
+#include "p4.hpp"
 #include "BigInt.hpp"
 
 using namespace std;
@@ -116,6 +117,7 @@ int main(int argc, char** argv)
   cout << "P1: " << Problem1().execute() << endl;
   cout << "P2: " << Problem2().execute() << endl;
   cout << "P3: " << (string)p3().execute() << endl;
+  cout << "P4: " << p4().execute() << endl;
   return 0;
 }
 
