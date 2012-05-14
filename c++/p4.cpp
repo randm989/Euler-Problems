@@ -11,7 +11,6 @@
 
 #include "p4.hpp"
 #include <string>
-#include <stdio.h>
 
 p4::p4()
 {
