@@ -9,6 +9,8 @@
 #define	P2_HPP
 #include "EulerProblem.hpp"
 
+typedef unsigned int uint;
+
 class Problem2 : public EulerProblem<uint> {
 public:
     Problem2();

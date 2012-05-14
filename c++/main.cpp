@@ -12,9 +12,30 @@
 
 #include "p1.hpp"
 #include "p2.hpp"
+#include "p3.hpp"
 #include "BigInt.hpp"
 
 using namespace std;
+
+void compareTest() {
+  BigInt big = 2;
+  BigInt small = 1;
+  cout << "2=2" << endl;
+  assert(big == big);
+  assert((big == small) == false);
+  cout << "2>1" << endl;
+  assert(big > small);
+  assert((big > big) == false);
+  assert((small > big) == false);
+  cout << "1<2" << endl;
+  assert(small < big);
+  assert((small < small) == false);
+  assert((big < small) == false);
+  cout << "1<=2&&2<=2" << endl;
+  assert(small <= big && big <= big);
+  cout << "2>=1&&2>=2" << endl;
+  assert(big >= small && big >= 2);
+}
 
 void SumTest()
 {
@@ -86,11 +107,15 @@ void ModTest()
  */
 int main(int argc, char** argv)
 {
+  compareTest();
 //  SumTest();
 //  MinusTest();
 //  MultTest();
 //  DivTest();
 //  ModTest();
+  cout << "P1: " << Problem1().execute() << endl;
+  cout << "P2: " << Problem2().execute() << endl;
+  cout << "P3: " << (string)p3().execute() << endl;
   return 0;
 }
 

@@ -9,8 +9,6 @@
 #define	EULERPROBLEM_HPP
 #include <cstddef>
 
-#define uint unsigned int
-
 template<class T>
 class EulerProblem
 {
