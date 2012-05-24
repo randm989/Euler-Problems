@@ -15,6 +15,7 @@
 #include "p3.hpp"
 #include "p4.hpp"
 #include "BigInt.hpp"
+#include "p5.hpp"
 
 using namespace std;
 
@@ -66,8 +67,8 @@ void MinusTest()
 
 void MultTest()
 {
-  int rhs = 239;
-  for( int i = rhs + 12; i < 500; i+=8)
+  int rhs = 2239;
+  for( int i = rhs + 12; i < 53200; i+=8224)
   {
     BigInt bi = i;
     bool result = (bi*rhs) == i * rhs;
@@ -79,8 +80,8 @@ void MultTest()
 
 void DivTest()
 {
-  int rhs = 13;
-  for( int i = rhs + 12; i < 500; i+=8)
+  int rhs = 133;
+  for( int i = rhs + 124434; i < 5242400; i+=3678)
   {
     BigInt bi = i;
     bool result = (bi/rhs) == i / rhs;
@@ -92,8 +93,8 @@ void DivTest()
 
 void ModTest()
 {
-  int rhs = 13;
-  for( int i = rhs + 12; i < 500; i+=8)
+  int rhs = 1355555;
+  for( int i = rhs + 12; i < 52200; i+=668)
   {
     BigInt bi = i;
     bool result = (bi%rhs) == i % rhs;
@@ -109,15 +110,17 @@ void ModTest()
 int main(int argc, char** argv)
 {
   compareTest();
-//  SumTest();
-//  MinusTest();
-//  MultTest();
-//  DivTest();
-//  ModTest();
+  SumTest();
+  MinusTest();
+  MultTest();
+  DivTest();
+  ModTest();
   cout << "P1: " << Problem1().execute() << endl;
   cout << "P2: " << Problem2().execute() << endl;
   cout << "P3: " << (string)p3().execute() << endl;
   cout << "P4: " << p4().execute() << endl;
+  cout << "P5: " << (string)p5().execute() << endl;
+
   return 0;
 }
 
