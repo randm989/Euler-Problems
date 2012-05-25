@@ -22,6 +22,8 @@ public:
   BigInt(const BigInt& orig);
   virtual ~BigInt();
 
+  BigInt &fromFile(const char* filename);
+
   operator std::string() const;
   std::string toString() const;
 
@@ -49,6 +51,7 @@ public:
   BigInt operator-(const BigInt &) const;
   BigInt & operator-=(const BigInt &);
 
+  uint size() const;
 
 private:
   std::vector<BigIntElement> digits;

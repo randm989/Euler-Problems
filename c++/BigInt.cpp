@@ -7,7 +7,10 @@
 
 #include "BigInt.hpp"
 #include <algorithm>
+#include <istream>
+#include <fstream>
 #include <boost/foreach.hpp>
+#include <boost/regex.hpp>
 
 BigInt::BigInt()
 {
@@ -31,6 +34,27 @@ BigInt::BigInt(const BigInt& orig)
 
 BigInt::~BigInt()
 {
+}
+
+uint BigInt::size() const
+{
+  return this->digits.size();
+}
+
+BigInt & BigInt::fromFile(const char* filename)
+{
+  std::ifstream myfile;
+  myfile.open(filename);
+  std::string s;
+  s.assign(std::istreambuf_iterator<char>(myfile), std::istreambuf_iterator<char>());
+  myfile.close();
+
+  boost::regex br;
+  const char * expression = "[^\\d]";
+  br.assign(expression);
+  s = boost::regex_replace(s,br,std::string(""),boost::match_default | boost::format_all);
+
+  return *this = BigInt(s.c_str());
 }
 
 BigIntElement & BigInt::operator [](unsigned int i)

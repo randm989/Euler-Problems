@@ -16,6 +16,9 @@
 #include "p4.hpp"
 #include "BigInt.hpp"
 #include "p5.hpp"
+#include "p6.hpp"
+#include "p7.hpp"
+#include "p8.hpp"
 
 using namespace std;
 
@@ -120,6 +123,9 @@ int main(int argc, char** argv)
   cout << "P3: " << (string)p3().execute() << endl;
   cout << "P4: " << p4().execute() << endl;
   cout << "P5: " << (string)p5().execute() << endl;
+  cout << "P6: " << (string)p6().execute() << endl;
+  cout << "P7: " << (string)p7().execute() << endl;
+  cout << "P8: " << p8().execute() << endl;
 
   return 0;
 }
