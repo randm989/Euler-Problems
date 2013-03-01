@@ -1,5 +1,17 @@
 #!/usr/bin/python
+import math
 
+#checks if a number is prime, pretty standard
+def isPrime( num ):
+  if num < 0:
+    return False
+  i = 2
+  while i < math.sqrt(num):
+    if num % i == 0:
+      return False
+    i+=1
+  return True
+      
 #Calculates the multiplicities of a number (how many times each prime factor needs to be multiplied to achieve the desired number)
 def getMultiplicities(num):
   i = 2
