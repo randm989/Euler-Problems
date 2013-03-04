@@ -1,6 +1,18 @@
 #!/usr/bin/python
 import math
 
+
+#Least common multiple calculation
+def lcm(a,b):
+	return (a*b)/gcd(a,b)
+
+#Greatest common denominator calculation
+def gcd(a,b):
+	if b == 0:
+		return a
+	else:
+		return gcd(b, a % b)
+
 #checks if a number is prime, pretty standard
 def isPrime( num ):
   if num < 0:

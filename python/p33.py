@@ -8,6 +8,7 @@
 #
 #If the product of these four fractions is given in its lowest common terms, find the value of the denominator.
 
+import myMath
 
 def specialCancel(num,den):
 	num_s = str(num)
@@ -34,12 +35,6 @@ for i in range(10,100):
 			finalK *= k	
 
 
-def gcd(a,b):
-	if b == 0:
-		return a
-	else:
-		return gcd(b, a % b)
-
-greatest = gcd(finalI,finalK)
+greatest = myMath.gcd(finalI,finalK)
 print greatest,finalI,finalK
 print finalI/greatest,finalK/greatest
