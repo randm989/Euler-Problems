@@ -1,6 +1,8 @@
 #!/usr/bin/python
 import math
 
+primeSieve = []
+primeSieveLen = 0
 
 #Least common multiple calculation
 def lcm(a,b):
@@ -15,14 +17,33 @@ def gcd(a,b):
 
 #checks if a number is prime, pretty standard
 def isPrime( num ):
-  if num < 0:
+  if num < primeSieveLen:
+    return primeSieve[num]
+
+  if num <= 1:
     return False
+
   sqrtNum = int(math.sqrt(num)) 
   for i in range(2,sqrtNum+1):
     if num % i == 0:
       return False
   return True
-      
+
+
+def initPrimeSieve(num):
+  global primeSieve
+  global primeSieveLen
+  primeSieve = [True] * num
+  primeSieve[0] = primeSieve[1] = False
+  for i in range(2,num):
+    if primeSieve[i]:
+      x = 2
+      while x * i < num:
+        primeSieve[x*i] = False
+        x+=1
+  primeSieveLen = len(primeSieve)
+
+
 #Calculates the multiplicities of a number (how many times each prime factor needs to be multiplied to achieve the desired number)
 def getMultiplicities(num):
   i = 2
