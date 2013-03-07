@@ -6,6 +6,7 @@
 #
 #How many circular primes are there below one million?
 import myMath
+myMath.initPrimeSieve(1000000)
 
 resultSieve = bytearray(1000001)
 
