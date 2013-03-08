@@ -15,6 +15,11 @@ def gcd(a,b):
 	else:
 		return gcd(b, a % b)
 
+def isPandigital(num):
+  strnum = str(num)
+  numlen = len(strnum)
+  return strnum.find('0') == -1 and all([strnum.count(str(x)) == 1 for x in range(1,numlen+1)])
+
 #checks if a number is prime, pretty standard
 def isPrime( num ):
   if num < primeSieveLen:
@@ -33,6 +38,8 @@ def isPrime( num ):
 def initPrimeSieve(num):
   global primeSieve
   global primeSieveLen
+  #limit the prime sieve to only use one megabyte of memory at most
+  num = min(num, 1000000)
   primeSieve = [True] * num
   primeSieve[0] = primeSieve[1] = False
   for i in range(2,num):
@@ -83,4 +90,16 @@ def getDivisorsByMultiplicities(multiplicities):
 def getDivisors(num):
   return getDivisorsByMultiplicities(getMultiplicities(num))
 
+def getAllPermutations(digits):
+  return _recursiveAllPermutations(digits,0)
 
+def _recursiveAllPermutations(digits, cur):
+  if len(digits) > 0:
+    perms = []
+    for i in range(len(digits)):
+      cur = cur*10 + digits[i] #element push
+      perms += _recursiveAllPermutations(digits[:i] + digits[i+1:], cur)
+      cur = int(cur/10) #element pop
+    return perms
+  else:
+    return [cur]
