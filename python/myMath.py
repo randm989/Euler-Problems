@@ -49,6 +49,7 @@ def initPrimeSieve(num):
         primeSieve[x*i] = False
         x+=1
   primeSieveLen = len(primeSieve)
+  return primeSieve
 
 
 #Calculates the multiplicities of a number (how many times each prime factor needs to be multiplied to achieve the desired number)
