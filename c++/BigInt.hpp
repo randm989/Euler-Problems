@@ -12,6 +12,7 @@
 #include <ostream>
 
 typedef char BigIntElement;
+typedef unsigned int uint;
 
 class BigInt
 {

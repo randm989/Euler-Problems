@@ -23,6 +23,7 @@ private:
 
 };
 
+typedef unsigned int uint;
 
 #endif	/* EULERPROBLEM_HPP */
 
