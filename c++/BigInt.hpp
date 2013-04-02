@@ -7,7 +7,7 @@
 
 #ifndef BIGINT_HPP
 #define	BIGINT_HPP
-#include <vector>
+#include <deque>
 #include <string>
 #include <ostream>
 
@@ -55,7 +55,7 @@ public:
   uint size() const;
 
 private:
-  std::vector<BigIntElement> digits;
+  std::deque<BigIntElement> digits;
   static const unsigned char radix = 10;
 
   void setDigit(unsigned int index, const BigIntElement &value);

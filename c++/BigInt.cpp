@@ -9,8 +9,10 @@
 #include <algorithm>
 #include <istream>
 #include <fstream>
-#include <boost/foreach.hpp>
-#include <boost/regex.hpp>
+/*
+#include <boost/regex>
+#include <boost/foreach>
+*/
 
 BigInt::BigInt()
 {
@@ -29,7 +31,7 @@ BigInt::BigInt(const char *s)
 
 BigInt::BigInt(const BigInt& orig)
 {
-  digits = std::vector<BigIntElement > (orig.digits);
+  digits = std::deque<BigIntElement> (orig.digits);
 }
 
 BigInt::~BigInt()
@@ -41,6 +43,17 @@ uint BigInt::size() const
   return this->digits.size();
 }
 
+void removeNonNumeric(std::string &s)
+{
+  std::string result;
+  for ( unsigned int i = 0; i < s.length(); ++i )
+  {
+    if ( s[i] >= '0' && s[i] <= '9' )
+      result.push_back(s[i]);
+  }
+  s = result;
+}
+
 BigInt & BigInt::fromFile(const char* filename)
 {
   std::ifstream myfile;
@@ -49,10 +62,14 @@ BigInt & BigInt::fromFile(const char* filename)
   s.assign(std::istreambuf_iterator<char>(myfile), std::istreambuf_iterator<char>());
   myfile.close();
 
+  /**
   boost::regex br;
   const char * expression = "[^\\d]";
   br.assign(expression);
   s = boost::regex_replace(s,br,std::string(""),boost::match_default | boost::format_all);
+  */
+
+  removeNonNumeric(s);
 
   return *this = BigInt(s.c_str());
 }
@@ -88,7 +105,7 @@ BigInt & BigInt::operator +=(const BigInt& rhs)
   BigIntElement carry = 0;
   const int bsize = b->digits.size();
   const int asize = a->digits.size();
-  digits.reserve(asize + 1);
+  //digits.reserve(asize + 1);
 
   while (i < asize)
   {
@@ -150,9 +167,9 @@ BigInt &BigInt::operator*=(const BigInt& rhs)
     std::swap(a,b);
 
   BigIntElement carry = 0;
-  const std::vector<BigIntElement> &ad = a->digits, &bd = b->digits;
+  const std::deque<BigIntElement> &ad = a->digits, &bd = b->digits;
   unsigned int bLength = bd.size(), aLength = ad.size();
-  temp.digits.reserve(bLength + aLength + 1);
+  //temp.digits.reserve(bLength + aLength + 1);
 
   while( i < bLength )
   {
@@ -190,9 +207,9 @@ BigInt & BigInt::operator -=(const BigInt& rhs)
   if (*a < *b)
     std::swap(a, b);
 
-  BigIntElement i = 0;
+  unsigned int i = 0;
   BigIntElement borrow = 0;
-  const int minuendSize = b->digits.size();
+  const unsigned int minuendSize = b->digits.size();
   while (i < a->digits.size())
   {
     BigIntElement newDigit = a->digits[i] - (minuendSize > i ? b->digits[i] : 0) - borrow;
@@ -253,11 +270,11 @@ BigInt & BigInt::operator =(int rhs)
 BigInt & BigInt::operator =(const char *rhs)
 {
   this->digits.clear();
-  char el;
 
-  BOOST_REVERSE_FOREACH(el, rhs)
+  while (*rhs) 
   {
-    this->digits.push_back(el - '0');
+    this->digits.push_front(*rhs - '0');
+    ++rhs;
   }
   return *this;
 }
@@ -273,7 +290,18 @@ std::string BigInt::toString() const
   BigIntElement digit;
   std::string result;
   result.reserve(digits.size());
+  std::deque<BigIntElement>::const_iterator i;
 
+  for ( i = digits.begin(); i != digits.end(); ++i )
+  {
+    digit = *i;
+    if( digit > 10 )
+      result.push_back('A' + (digit-10));
+    else
+      result.push_back('0' + digit);
+  }
+  std::reverse(result.begin(), result.end());
+  /**
   BOOST_REVERSE_FOREACH(digit, digits)
   {
     if( digit > 10 )
@@ -281,6 +309,8 @@ std::string BigInt::toString() const
     else
       result.push_back('0' + digit);
   }
+  */
+
   return result;
 }
 

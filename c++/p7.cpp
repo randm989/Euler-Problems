@@ -36,7 +36,7 @@ BigInt p7::execute()
 {
   uint numPrimes = 1;
   int64_t curNum = 3;
-  while( numPrimes < 10001 && curNum < INT64_MAX )
+  while( numPrimes < 10001 && curNum < INT_MAX )
   {
     if( isPrime(curNum ) )
       numPrimes++;
