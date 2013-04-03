@@ -2,7 +2,7 @@ WFLAGS	= -Wall -Werror -pedantic
 CFLAGS	= -I include -ansi -m64 $(WFLAGS)
 CC	= g++
 DEPS	= EulerProblem.hpp
-SOLVED	= p1.o p2.o p3.o p4.o p5.o p6.o p7.o p8.o
+SOLVED	= $(patsubst p%.cpp,p%.o,$(wildcard p*.cpp))
 
 EulerProblems:	main.o BigInt.o	$(SOLVED)
 	$(CC) $(CFLAGS) $^ -o $@
