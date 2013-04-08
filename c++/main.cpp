@@ -20,6 +20,7 @@
 #include "p7.hpp"
 #include "p8.hpp"
 #include "p9.hpp"
+#include "p10.hpp"
 
 using namespace std;
 
@@ -128,6 +129,7 @@ int main(int argc, char** argv)
   cout << "P7: " << (string)p7().execute() << endl;
   cout << "P8: " << p8().execute() << endl;
   cout << "P9: " << p9().execute() << endl;
+  cout << "p10: " << (string)p10().execute() << endl;
 
   return 0;
 }
