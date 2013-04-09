@@ -24,7 +24,7 @@ p8::~p8()
 uint p8::execute()
 {
   BigInt big;
-  big.fromFile("p8data.txt");
+  big.fromFile("../p8.txt");
   std::queue<uint> queue;
 
   uint numSize = big.size();

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 
-f = open('p11.txt','r')
+f = open('../p11.txt','r')
 contents = f.read()
 f.close();
 
