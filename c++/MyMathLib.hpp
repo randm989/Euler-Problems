@@ -22,4 +22,12 @@ class MathLib
     void initPrimeSieve();
 };
 
+struct Vector2
+{
+  Vector2() { x = y = 0; }
+  Vector2(int _x, int _y) { x = _x; y = _y; }
+  int x;
+  int y;
+};
+
 #endif
