@@ -21,6 +21,7 @@
 #include "p8.hpp"
 #include "p9.hpp"
 #include "p10.hpp"
+#include "p11.hpp"
 
 using namespace std;
 
@@ -130,7 +131,8 @@ int main(int argc, char** argv)
   cout << "P8: " << p8().execute() << endl;
   cout << "P9: " << p9().execute() << endl;
   cout << "p10: " << (string)p10().execute() << endl;
-
+  cout << "p11: " << p11().execute() << endl;
+  
   return 0;
 }
 
