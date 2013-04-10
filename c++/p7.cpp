@@ -10,6 +10,7 @@
  */
 
 #include "p7.hpp"
+#include <limits.h>
 
 p7::p7()
 {
@@ -35,7 +36,7 @@ static bool isPrime(T num)
 BigInt p7::execute()
 {
   uint numPrimes = 1;
-  int64_t curNum = 3;
+  unsigned int curNum = 3;
   while( numPrimes < 10001 && curNum < INT_MAX )
   {
     if( isPrime(curNum ) )
