@@ -1,8 +1,7 @@
 #include "p11.hpp"
 #include "MyMathLib.hpp"
+#include "FileLib.hpp"
 #include <vector>
-#include <iostream>
-#include <fstream>
 
 //What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 2020 grid?
 
@@ -27,11 +26,7 @@ uint traverse(std::vector<std::vector<uint> > grid, Vector2 start, Vector2 step,
 
 uint p11::execute() 
 {
-  std::ifstream myfile;
-  myfile.open("../p11.txt");
-  std::string s;
-  s.assign(std::istreambuf_iterator<char>(myfile), std::istreambuf_iterator<char>());
-  myfile.close();
+  std::string s = getFileContents("../p11.txt");
 
   std::vector<std::vector<uint> > grid;
   std::vector<uint> row;
