@@ -22,6 +22,8 @@
 #include "p9.hpp"
 #include "p10.hpp"
 #include "p11.hpp"
+#include "p12.hpp"
+#include "p13.hpp"
 
 using namespace std;
 
@@ -115,12 +117,15 @@ void ModTest()
  */
 int main(int argc, char** argv)
 {
-  compareTest();
-  SumTest();
-  MinusTest();
-  MultTest();
-  DivTest();
-  ModTest();
+  if ( argc > 1 && strcmp(argv[1], "debug") == 0 )
+  {
+    compareTest();
+    SumTest();
+    MinusTest();
+    MultTest();
+    DivTest();
+    ModTest();
+  }
   cout << "P1: " << Problem1().execute() << endl;
   cout << "P2: " << Problem2().execute() << endl;
   cout << "P3: " << (string)p3().execute() << endl;
@@ -132,7 +137,9 @@ int main(int argc, char** argv)
   cout << "P9: " << p9().execute() << endl;
   cout << "p10: " << (string)p10().execute() << endl;
   cout << "p11: " << p11().execute() << endl;
-  
+  cout << "p12: " << p12().execute() << endl;
+  cout << "p13: " << p13().execute() << endl;
+
   return 0;
 }
 
