@@ -9,15 +9,16 @@
 #define	P13_HPP
 
 #include "EulerProblem.hpp"
+#include "BigInt.hpp"
 
-class p13 : public EulerProblem<uint>
+class p13 : public EulerProblem<BigInt>
 {
 public:
   p13(){}
   p13(const p13& orig){}
   virtual ~p13(){}
 
-  uint execute();
+  BigInt execute();
 private:
 
 };

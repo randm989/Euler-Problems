@@ -74,6 +74,16 @@ BigInt & BigInt::fromFile(const char* filename)
   return *this = BigInt(s.c_str());
 }
 
+std::string BigInt::subset(unsigned int startIndex, unsigned int endIndex)
+{
+  std::string result;
+
+  for ( unsigned int i = endIndex-1; i >= startIndex; --i )
+    result.push_back('0' + digits[i]);
+
+  return result;
+}
+
 BigIntElement & BigInt::operator [](unsigned int i)
 {
   return digits[i];

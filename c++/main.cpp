@@ -138,7 +138,7 @@ int main(int argc, char** argv)
   cout << "p10: " << (string)p10().execute() << endl;
   cout << "p11: " << p11().execute() << endl;
   cout << "p12: " << p12().execute() << endl;
-  cout << "p13: " << p13().execute() << endl;
+  cout << "p13: " << (string)p13().execute() << endl;
 
   return 0;
 }

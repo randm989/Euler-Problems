@@ -31,6 +31,7 @@ public:
   BigInt & operator=(int);
   BigInt & operator=(const char *);
   BigIntElement &operator[](unsigned int);
+  std::string subset(unsigned int startIndex, unsigned int endIndex);
 
   BigInt operator*(const BigInt &) const;
   BigInt & operator*=(const BigInt &);

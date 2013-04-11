@@ -1,6 +1,7 @@
 WFLAGS	= -Wall -Werror -pedantic
+DEBUGFLAGS = -g
 TESTFLAGS = -L/usr/lib32 
-CFLAGS	= -I include -m32 -ansi $(WFLAGS) # $(TESTFLAGS)
+CFLAGS	= -I include -m32 -ansi $(WFLAGS) $(DEBUGFLAGS) # $(TESTFLAGS)
 CC	= g++
 DEPS	= MyMathLib.hpp EulerProblem.hpp
 SOLVED	= $(patsubst p%.cpp,p%.o,$(wildcard p*.cpp))
