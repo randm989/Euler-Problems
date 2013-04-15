@@ -9,6 +9,8 @@
 #include "p8.hpp"
 #include <queue>
 
+MAKE_PROTOTYPE(p8)
+
 p8::p8()
 {
 }

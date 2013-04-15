@@ -1,6 +1,8 @@
 #include "p12.hpp"
 #include <math.h>
 
+MAKE_PROTOTYPE(p12)
+
 //Let us list the factors of the first seven triangle numbers:
 //
 // 1: 1

@@ -5,6 +5,8 @@
 //
 //Find the sum of all the primes below two million.
 
+MAKE_PROTOTYPE(p10)
+
 BigInt p10::execute() 
 {
   std::vector<unsigned int> primes = MathLib::getInstance().getAllPrimes(2000000);

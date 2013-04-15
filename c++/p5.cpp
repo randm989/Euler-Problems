@@ -12,6 +12,8 @@
 
 #include "p5.hpp"
 
+MAKE_PROTOTYPE(p5)
+
 p5::p5()
 {
 }

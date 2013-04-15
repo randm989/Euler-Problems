@@ -3,6 +3,8 @@
 #include "FileLib.hpp"
 #include <vector>
 
+MAKE_PROTOTYPE(p11)
+
 //What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 2020 grid?
 
 uint traverse(std::vector<std::vector<uint> > grid, Vector2 start, Vector2 step, uint numsteps)

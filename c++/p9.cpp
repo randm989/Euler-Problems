@@ -8,6 +8,9 @@
 //There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 //Find the product abc.
 
+
+MAKE_PROTOTYPE(p9)
+
 uint p9::execute() 
 {
   int m = 2, n = 1, k = 1;

@@ -13,7 +13,7 @@ class p1 : public EulerProblem<int> {
 public:
     p1(){}
     virtual ~p1(){}
-    
+
     int execute();
 private:
     

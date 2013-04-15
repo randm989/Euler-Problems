@@ -12,6 +12,8 @@
 #include "p7.hpp"
 #include <limits.h>
 
+MAKE_PROTOTYPE(p7)
+
 p7::p7()
 {
 }

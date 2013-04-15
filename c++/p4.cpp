@@ -12,6 +12,8 @@
 #include "p4.hpp"
 #include <string>
 
+MAKE_PROTOTYPE(p4)
+
 p4::p4()
 {
 }

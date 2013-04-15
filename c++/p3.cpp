@@ -13,6 +13,9 @@
 #include "BigInt.hpp"
 #include <iostream>
 
+
+MAKE_PROTOTYPE(p3)
+
 p3::p3()
 {
 }

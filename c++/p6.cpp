@@ -17,6 +17,8 @@
 
 #include "p6.hpp"
 
+MAKE_PROTOTYPE(p6)
+
 p6::p6()
 {
 }

@@ -1,5 +1,6 @@
 #include "p1.hpp"
 
+MAKE_PROTOTYPE(p1)
 
 int p1::execute() 
 {

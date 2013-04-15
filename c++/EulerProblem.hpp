@@ -8,11 +8,19 @@
 #ifndef EULERPROBLEM_HPP
 #define	EULERPROBLEM_HPP
 #include <ostream>
+#include <map>
+#include <string>
+
+#define MAKE_PROTOTYPE(TYPE) EulerProblemBase * TYPE##_prototype = EulerProblemBase::addProblemPrototype(#TYPE, new TYPE());
 
 class EulerProblemBase
 {
   public:
     virtual void executeToOstream(std::ostream& stream) = 0;
+
+    static std::map<std::string, EulerProblemBase*> protoTable;
+    static EulerProblemBase *addProblemPrototype(std::string key, EulerProblemBase *);
+    static void cleanupPrototypes();
 };
 
 
