@@ -7,16 +7,16 @@
 
 #include "p2.hpp"
 
-Problem2::Problem2() {
+p2::p2() {
 }
 
-Problem2::Problem2(const Problem2& orig) {
+p2::p2(const p2& orig) {
 }
 
-Problem2::~Problem2() {
+p2::~p2() {
 }
 
-uint Problem2::execute() 
+uint p2::execute() 
 {
     uint result = 0;
     

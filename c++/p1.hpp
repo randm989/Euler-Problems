@@ -9,10 +9,10 @@
 #define	P1_HPP
 #include "EulerProblem.hpp"
 
-class Problem1 : public EulerProblem<int> {
+class p1 : public EulerProblem<int> {
 public:
-    Problem1(){}
-    virtual ~Problem1(){}
+    p1(){}
+    virtual ~p1(){}
     
     int execute();
 private:

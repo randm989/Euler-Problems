@@ -64,6 +64,7 @@ private:
   int compare(const BigInt &lhs, const BigInt &rhs) const;
 };
 
+std::ostream& operator << (std::ostream& osObject, const BigInt& bi);
 
 #endif	/* BIGINT_HPP */
 

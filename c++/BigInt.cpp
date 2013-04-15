@@ -375,3 +375,9 @@ void BigInt::cleanTrailingZeros()
     --newSize;
   digits.resize(newSize,0);
 }
+
+std::ostream& operator << (std::ostream& osObject, const BigInt& bi)
+{
+  osObject << bi.toString();
+  return osObject;
+}

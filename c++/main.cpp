@@ -128,21 +128,29 @@ int main(int argc, char** argv)
     DivTest();
     ModTest();
   }
-  cout << "P1: " << Problem1().execute() << endl;
-  cout << "P2: " << Problem2().execute() << endl;
-  cout << "P3: " << (string)p3().execute() << endl;
-  cout << "P4: " << p4().execute() << endl;
-  cout << "P5: " << (string)p5().execute() << endl;
-  cout << "P6: " << (string)p6().execute() << endl;
-  cout << "P7: " << (string)p7().execute() << endl;
-  cout << "P8: " << p8().execute() << endl;
-  cout << "P9: " << p9().execute() << endl;
-  cout << "p10: " << (string)p10().execute() << endl;
-  cout << "p11: " << p11().execute() << endl;
-  cout << "p12: " << p12().execute() << endl;
-  cout << "p13: " << (string)p13().execute() << endl;
-  cout << "p14: " << p14().execute() << endl;
-  cout << "p15: " << (string)p15().execute() << endl;
+
+  EulerProblemBase *problems[] = {new p1(),
+                                  new p2(),
+                                  new p3(),
+                                  new p4(),
+                                  new p5(),
+                                  new p6(),
+                                  new p7(),
+                                  new p8(),
+                                  new p9(),
+                                  new p10(),
+                                  new p11(),
+                                  new p12(),
+                                  new p13(),
+                                  new p14(),
+                                  new p15()};
+  uint psize = sizeof(problems) / sizeof(problems[0]);
+
+  for ( uint i = 0; i != psize; ++i )
+  {
+    cout << "P" << i+1 << ": " << *problems[i] << endl;
+    delete problems[i];
+  }
 
   return 0;
 }

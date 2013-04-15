@@ -11,11 +11,11 @@
 
 typedef unsigned int uint;
 
-class Problem2 : public EulerProblem<uint> {
+class p2 : public EulerProblem<uint> {
 public:
-    Problem2();
-    Problem2(const Problem2& orig);
-    virtual ~Problem2();
+    p2();
+    p2(const p2& orig);
+    virtual ~p2();
 
     uint execute();
 private:
