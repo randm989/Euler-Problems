@@ -6,13 +6,16 @@ CC	= g++
 DEPS	= MyMathLib.hpp EulerProblem.hpp
 SOLVED	= $(patsubst p%.cpp,p%.o,$(wildcard p*.cpp))
 
-EulerProblems:	main.o FileLib.o MyMathLib.o BigInt.o EulerProblem.o $(SOLVED) 
+EulerProblems:	main.o FileLib.o MyMathLib.o BigInt.o BigIntTests.o EulerProblem.o $(SOLVED) 
 	$(CC) $(CFLAGS) $^ -o $@
 
 main.o:	main.cpp BigInt.cpp $(wildcard p*.cpp) 	
 	$(CC) $(CFLAGS) $^ -c
 
 BigInt.o: BigInt.cpp BigInt.hpp $(DEPS)
+	$(CC) $(CFLAGS) $^ -c
+
+BigIntTests.o: BigInt.o BigIntTests.cpp $(DEPS)
 	$(CC) $(CFLAGS) $^ -c
 
 p/%.o: p/%.cpp p/%.hpp $(DEPS)

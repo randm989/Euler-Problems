@@ -14,6 +14,13 @@
 typedef char BigIntElement;
 typedef unsigned int uint;
 
+void compareTest();
+void SumTest();
+void MinusTest();
+void MultTest();
+void DivTest();
+void ModTest();
+
 class BigInt
 {
 public:

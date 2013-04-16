@@ -93,7 +93,7 @@ void BigInt::setDigit(unsigned int index,const BigIntElement &value)
 {
   if( digits.size() < index+1 )
   {
-    digits.resize(index+1,0);
+    digits.resize(index*2+10,0);
   }
   digits[index] = value;
 }
@@ -111,10 +111,10 @@ BigInt & BigInt::operator +=(const BigInt& rhs)
   if (*a < *b)
     std::swap(a, b);
 
-  BigIntElement i = 0;
+  unsigned int i = 0;
   BigIntElement carry = 0;
-  const int bsize = b->digits.size();
-  const int asize = a->digits.size();
+  const unsigned int bsize = b->digits.size();
+  const unsigned int asize = a->digits.size();
   //digits.reserve(asize + 1);
 
   while (i < asize)
@@ -126,6 +126,8 @@ BigInt & BigInt::operator +=(const BigInt& rhs)
   }
   if( carry > 0 )
     this->setDigit(i, carry);
+
+  cleanTrailingZeros();
   return *this;
 }
 
