@@ -14,12 +14,19 @@
 typedef char BigIntElement;
 typedef unsigned int uint;
 
-void compareTest();
-void SumTest();
-void MinusTest();
-void MultTest();
-void DivTest();
-void ModTest();
+class BigIntTests
+{
+  public:
+    void execute();
+  private:
+    void ExpTest();
+    void compareTest();
+    void SumTest();
+    void MinusTest();
+    void MultTest();
+    void DivTest();
+    void ModTest();
+};
 
 class BigInt
 {
@@ -47,6 +54,8 @@ public:
   BigInt &operator/=(const BigInt &);
   BigInt operator%(const BigInt &) const;
   BigInt &operator%=(const BigInt &);
+
+  BigInt &exp( BigInt );
 
   bool operator>(const BigInt &) const;
   bool operator>=(const BigInt &) const;

@@ -279,6 +279,24 @@ BigInt & BigInt::operator =(int rhs)
   return *this;
 }
 
+BigInt & BigInt::exp(BigInt rhs)
+{
+  BigInt result = 1;
+
+  while ( rhs > 0 )
+  {
+    if ( rhs[0] % 2 )
+    {
+      result *= *this;
+      rhs -= 1;
+    }
+    *this *= *this;
+    rhs /= 2;
+  }
+  *this = result;
+  return *this;
+}
+
 BigInt & BigInt::operator =(const char *rhs)
 {
   this->digits.clear();

@@ -4,7 +4,41 @@
 
 using namespace std;
 
-void compareTest() {
+void BigIntTests::execute()
+{
+  compareTest();
+  SumTest();
+  MinusTest();
+  MultTest();
+  DivTest();
+  ModTest();
+  ExpTest();
+}
+
+
+void BigIntTests::ExpTest()
+{
+  BigInt num = 6;
+
+  assert(num.exp(0) == 1);
+  num = 6;
+  assert(num.exp(1) == 6);
+  num = 6;
+  num.exp(2);
+  assert(num == 36);
+  num = 6;
+  num.exp(3);
+  assert(num == 216);
+
+  num = 1;
+
+  assert(num.exp(1000) == 1);
+
+  cout << "exp tests passed" << endl;
+}
+
+void BigIntTests::compareTest() 
+{
   BigInt big = 2;
   BigInt small = 1;
   cout << "2=2" << endl;
@@ -24,7 +58,7 @@ void compareTest() {
   assert(big >= small && big >= 2);
 }
 
-void SumTest()
+void BigIntTests::SumTest()
 {
   int adduend = 19;
   for( int i = 5; i < 265; i+= 10 )
@@ -37,7 +71,7 @@ void SumTest()
   }
 }
 
-void MinusTest()
+void BigIntTests::MinusTest()
 {
   int minuend = 239;
   for( int i = minuend + 12; i < 500; i+=8)
@@ -50,7 +84,7 @@ void MinusTest()
   }
 }
 
-void MultTest()
+void BigIntTests::MultTest()
 {
   int rhs = 2239;
   for( int i = rhs + 12; i < 53200; i+=8224)
@@ -63,7 +97,7 @@ void MultTest()
   }
 }
 
-void DivTest()
+void BigIntTests::DivTest()
 {
   int rhs = 133;
   for( int i = rhs + 124434; i < 5242400; i+=3678)
@@ -76,7 +110,7 @@ void DivTest()
   }
 }
 
-void ModTest()
+void BigIntTests::ModTest()
 {
   int rhs = 1355555;
   for( int i = rhs + 12; i < 52200; i+=668)

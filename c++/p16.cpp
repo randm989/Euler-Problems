@@ -5,12 +5,9 @@ MAKE_PROTOTYPE(p16)
 
 uint p16::execute() 
 {
-  BigInt naive = 1;
+  BigInt naive = 2;
 
-  for ( uint i = 0; i < 1000; ++i )
-  {
-    naive *= 2;
-  }
+  naive.exp(1000);
   
   uint sum = 0;
   for ( uint i = 0; i < naive.size(); ++i )
