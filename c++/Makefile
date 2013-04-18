@@ -15,7 +15,7 @@ main.o:	main.cpp BigInt.cpp $(wildcard p*.cpp)
 BigInt.o: BigInt.cpp BigInt.hpp $(DEPS)
 	$(CC) $(CFLAGS) $^ -c
 
-BigIntTests.o: BigInt.o BigIntTests.cpp $(DEPS)
+BigIntTests.o: BigInt.cpp BigIntTests.cpp 
 	$(CC) $(CFLAGS) $^ -c
 
 p/%.o: p/%.cpp p/%.hpp $(DEPS)
