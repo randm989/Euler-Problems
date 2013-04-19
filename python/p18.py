@@ -1,6 +1,6 @@
 #/bin/python
 
-f = open('p18.txt','r')
+f = open('../p18.txt','r')
 contents = f.read()
 f.close();
 
