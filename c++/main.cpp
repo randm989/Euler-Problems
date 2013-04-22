@@ -25,8 +25,19 @@ std::string convertInt(int number)
  */
 int main(int argc, char** argv)
 {
+  uint probMin = 1, probMax = 30;
+  if ( argc > 1 )
+  {
+    probMax = atoi(argv[1]);
+    if ( argc > 2 )
+    {
+      probMin = atoi(argv[1]) > 0 ? atoi(argv[1]) : 1;
+      probMax = atoi(argv[2]);
+    }
+  }
+
   std::map<std::string, EulerProblemBase*>::iterator iter = EulerProblemBase::protoTable.begin();
-  for ( unsigned int i = 1; i < 30; ++i )
+  for ( unsigned int i = probMin; i <= probMax; ++i )
   {
     iter = EulerProblemBase::protoTable.find(std::string("p") + convertInt(i));
     if ( iter != EulerProblemBase::protoTable.end() )
