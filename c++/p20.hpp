@@ -8,12 +8,12 @@
 #define	P20_HPP
 #include "EulerProblem.hpp"
 
-class p20 : public EulerProblem<int> {
+class p20 : public EulerProblem<uint> {
 public:
     p20(){}
     virtual ~p20(){}
 
-    int execute();
+    uint execute();
 private:
     
 };
